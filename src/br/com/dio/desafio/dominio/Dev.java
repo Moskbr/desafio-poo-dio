@@ -12,9 +12,27 @@ public class Dev {
         bootcamp.getDevsInscritos().add(this);
     }
 
-    public void progredir() {
+    public void progredir() {// Alterações do Projeto Final (PF)
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if(conteudo.isPresent()) {
+            if(conteudo.get().isTemProjetoFinal())
+                System.out.println("Requer a entrega de um Projeto Final. Faça a entrega para progredir.");
+            else {
+                this.conteudosConcluidos.add(conteudo.get());
+                this.conteudosInscritos.remove(conteudo.get());
+            }
+        } else {
+            System.err.println("Você não está matriculado em nenhum conteúdo!");
+        }
+    }
+
+    public void progredir(String projeto) {// Sobrecarga com parametro
+        Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
+        if(conteudo.isPresent()) {
+            if(conteudo.get().isTemProjetoFinal() && !projeto.isEmpty()){// projeto nao pode ser null
+                conteudo.get().entregarProjetoFinal(projeto);
+                System.out.println(projeto + " (Entregue)");// verificação
+            }
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
         } else {

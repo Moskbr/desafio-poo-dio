@@ -16,6 +16,7 @@ public class Main {
         curso2.setTitulo("curso js");
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
+        curso2.setTemProjetoFinal(true);// curso2 JS precisa de Projeto Final
 
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
@@ -38,7 +39,8 @@ public class Main {
         devCamila.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         devCamila.progredir();
-        devCamila.progredir();
+        devCamila.progredir();// deve retornar mensagem pedindo um Projeto Final
+        //devCamila.progredir("Projeto Final do curso de JS da Dev Camila");
         System.out.println("-");
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
@@ -51,13 +53,14 @@ public class Main {
         devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
-        devJoao.progredir();
+        devJoao.progredir();// deve retornar mensagem pedindo um Projeto Final
+        devJoao.progredir("Projeto Final do curso de JS do Dev João");
         devJoao.progredir();
         System.out.println("-");
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
         System.out.println("XP:" + devJoao.calcularTotalXp());
 
-    }
+    }// Alteração/Contribuição: Adicionar recurso de PROJETO FINAL nessário para progredir() em determinado Conteúdo
 
 }
